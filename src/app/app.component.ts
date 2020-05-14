@@ -35,7 +35,7 @@ export class AppComponent {
 
       for(let i = 1; i < arr.length; i++){
         if (!(arr[i]==="+" || arr[i]==="-" || arr[i]==="*" || arr[i]==="/")){
-          //--Пропуск итерации--
+          //--Continue--
         } else if (arr[i]==="+") {
           num_b = +arr[i + 1]
           result = this.plus(num_a, num_b);
