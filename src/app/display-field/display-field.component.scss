@@ -1,0 +1,33 @@
+.displayField {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.display {
+    height: 20px;
+    background-color: #94b0b7;
+    
+    span {
+        border: none;
+        height: 20px;
+        color: #fff;
+
+        float: right;
+        width: fit-content;
+    }
+}
+
+.field {
+    height: 20px;
+    background-color: #ddddda;
+
+    span {
+        border: none;
+        height: 20px;
+        background-color: #ddddda;
+
+        float: right;
+        width: fit-content;
+    }
+}

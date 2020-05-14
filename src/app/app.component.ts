@@ -11,8 +11,10 @@ export class AppComponent {
   field: string = "0";
   signs: string = "";
 
-  addSign(sign) {
+  arrButton: Array<number> = [1, 2, 3];
 
+
+  addSignApp(sign) {
     let leng: number = this.signs.length - 1;
 
     if(sign==="+" || sign==="-" || sign==="*" || sign==="/"){
@@ -27,7 +29,7 @@ export class AppComponent {
     this.field = this.signs.split("|").join("");
   }
 
-  toEquals() {
+  toEqualsApp() {
     let arr: Array<any> = this.signs.split("|")
     let num_a: number = +arr[0];
     let num_b: number;
@@ -69,7 +71,7 @@ export class AppComponent {
   division(a:number, b:number){
     return a / b;
   }
-  toClear() {
+  toClearApp() {
     this.signs = "";
     this.field = "0";
     this.display = 0;
