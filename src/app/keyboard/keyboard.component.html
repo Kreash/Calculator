@@ -1,34 +1,31 @@
 <div class="keyboard">
 
-    <div class="keyboardDeleteGroup">
-      <input (click)="toClear()" class="button button-delete" type="button" value="DEL">
-      <input class="button button-erase" type="button" value="Backspace">
+  <div class="keyboardDeleteGroup">
+    <input (click)="toClear()" class="button button-delete" type="button" value="DEL">
+    <input class="button button-erase" type="button" value="Backspace">
+  </div>
+
+  <div class="keyboardNumAndSign">
+    <div>
+      <div class="keyboardGroups" *ngFor="let iter of arrButton; let idx = index">
+        <div class="keyboardNumber-{{num}}" *ngFor="let num of arrButton[idx]">
+          <input (click)="addSign($event.target.value)" class="button button-{{num}}" value="{{num}}" type="button">
+        </div>
+      </div>
+
+      <div class="keyboardNullGroup">
+        <input (click)="addSign($event.target.value)" class="button button-0" type="button" value="0">
+        <input class="button button-decimal" type="button" value=",">
+        <input (click)="toEquals()" class="button button-equals" type="button" value="=">
+      </div>
     </div>
 
-    <div class="keyboardThreeGroup">
-      <input (click)="addSign($event.target.value)" class="button button-7" type="button" value="7">
-      <input (click)="addSign($event.target.value)" class="button button-8" type="button" value="8">
-      <input (click)="addSign($event.target.value)" class="button button-9" type="button" value="9">
-      <input (click)="addSign($event.target.value)" class="button button-division" type="button" value="/">
+    <div>
+      <div class="keyboardSigns">
+        <input (click)="addSign($event.target.value)" class="button button-division" type="button" value="/">
+        <input (click)="addSign($event.target.value)" class="button button-multiplication" type="button" value="*">
+        <input (click)="addSign($event.target.value)" class="button button-minus" type="button" value="-">
+        <input (click)="addSign($event.target.value)" class="button button-plus" type="button" value="+">
+      </div>
     </div>
-
-    <div class="keyboardTwoGroup">
-      <input (click)="addSign($event.target.value)" class="button button-4" type="button" value="4">
-      <input (click)="addSign($event.target.value)" class="button button-5" type="button" value="5">
-      <input (click)="addSign($event.target.value)" class="button button-6" type="button" value="6">
-      <input (click)="addSign($event.target.value)" class="button button-multiplication" type="button" value="*">
-    </div>
-
-    <div class="keyboardOneGroup">
-      <input (click)="addSign($event.target.value)" class="button button-1" type="button" value="1">
-      <input (click)="addSign($event.target.value)" class="button button-2" type="button" value="2">
-      <input (click)="addSign($event.target.value)" class="button button-3" type="button" value="3">
-      <input (click)="addSign($event.target.value)" class="button button-minus" type="button" value="-">
-    </div>
-
-    <div class="keyboardNullGroup">
-      <input (click)="addSign($event.target.value)" class="button button-0" type="button" value="0">
-      <input class="button button-decimal" type="button" value=",">
-      <input (click)="toEquals()" class="button button-equals" type="button" value="=">
-      <input (click)="addSign($event.target.value)" class="button button-plus" type="button" value="+">
-    </div>
+  </div>

@@ -11,9 +11,6 @@ export class AppComponent {
   field: string = "0";
   signs: string = "";
 
-  arrButton: Array<number> = [1, 2, 3];
-
-
   addSignApp(sign) {
     let leng: number = this.signs.length - 1;
 
