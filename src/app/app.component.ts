@@ -18,16 +18,13 @@ export class AppComponent {
     if(sign==="+" || sign==="-" || sign==="*" || sign==="/"){
       if (!(this.signs[leng] === "|")){
         this.signs = this.signs + "|" + sign + "|";
-        console.log("add")
       } else {
-        console.log("double sign")
         return;
         }
     } else {
       this.signs = this.signs + sign;
     }
     this.field = this.signs.split("|").join("");
-    //console.log("-----");
   }
 
   toEquals() {
@@ -38,27 +35,23 @@ export class AppComponent {
 
       for(let i = 1; i < arr.length; i++){
         if (!(arr[i]==="+" || arr[i]==="-" || arr[i]==="*" || arr[i]==="/")){
-          console.log("num_b = +arr[i];")
+          //--Пропуск итерации--
         } else if (arr[i]==="+") {
           num_b = +arr[i + 1]
           result = this.plus(num_a, num_b);
           num_a = result;
-          console.log("Вызов плюса", result, typeof(num_a), typeof(num_b))
         } else if (arr[i]==="-"){
           num_b = +arr[i + 1]
           result = this.minus(num_a, num_b);
           num_a = result;
-          console.log("Вызов минуса", result, typeof(num_a), typeof(num_b))
         } else if (arr[i]==="*"){
           num_b = +arr[i + 1]
           result = this.multiplication(num_a, num_b);
           num_a = result;
-          console.log("Вызов умножения", result, typeof(num_a), typeof(num_b))
         } else if (arr[i]==="/"){
           num_b = +arr[i + 1]
           result = this.division(num_a, num_b);
           num_a = result;
-          console.log("Вызов деления", result, typeof(num_a), typeof(num_b))
         }
       }
     this.display = result;
