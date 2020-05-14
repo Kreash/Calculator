@@ -25,6 +25,12 @@ export class KeyboardComponent implements OnInit {
   toEquals(){
     this.toEqualsApp.emit();
   }
+  @Output() toEraseApp = new EventEmitter();
+  toErase(){
+    this.toEraseApp.emit();
+  }
+
+
 
   constructor() { }
 

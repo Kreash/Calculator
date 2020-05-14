@@ -9,8 +9,7 @@ export class DisplayFieldComponent implements OnInit {
 
   @Input() display: string;
   @Input() field: number;
-
-
+  
   constructor() { }
 
   ngOnInit(): void {

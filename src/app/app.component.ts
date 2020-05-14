@@ -20,6 +20,12 @@ export class AppComponent {
       } else {
         return;
         }
+    } else if (sign===","){
+      let arr: Array<any> = this.signs.split("|")
+      let end: string = arr[arr.length - 1];
+      if(!end.includes(".") && !(this.signs[leng] === "|")){
+        this.signs = this.signs + ".";
+      }
     } else {
       this.signs = this.signs + sign;
     }
@@ -68,9 +74,20 @@ export class AppComponent {
   division(a:number, b:number){
     return a / b;
   }
+
   toClearApp() {
     this.signs = "";
     this.field = "0";
     this.display = 0;
+  }
+
+  toEraseApp(){
+    if(this.signs[this.signs.length - 1] === "|"){
+      this.field = this.field.slice(0, this.field.length - 1);
+      this.signs = this.signs.slice(0, this.signs.length - 3);
+    } else {
+    this.field = this.field.slice(0, this.field.length - 1);
+    this.signs = this.signs.slice(0, this.signs.length - 1);
+    }
   }
 }
