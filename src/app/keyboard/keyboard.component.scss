@@ -12,22 +12,14 @@
     overflow: hidden;
     transition: 0.4s;
 
-}
+    height: 1.5rem;
+    width: 2.5rem;
 
+}
 .button:hover{
     color: #ffffff;
     background: #7697a0;
     box-shadow: 0 0 2px #7697a0, 0 0 4px #7697a0, 0 0 6px #7697a0;
-}
-
-.button-erase {
-    font-size: 7px;
-    width: 6.25rem;
-
-}
-
-.button-delete {
-    width: 3.75rem;
 }
 
 .keyboardDeleteGroup {
@@ -38,10 +30,25 @@
     }
 
 }
-
-.keyboardNullGroup, .keyboardOneGroup, .keyboardTwoGroup, .keyboardThreeGroup {
-    input {
-        height: 1.5rem;
-        width: 2.5rem;
-    }
+.button-delete {
+    width: 3.75rem;
 }
+.button-erase {
+    font-size: 7px;
+    width: 6.25rem;
+
+}
+
+.keyboardNumAndSign {
+    display: flex;
+}
+
+.keyboardGroups {
+    display: flex;
+}
+// .keyboardNullGroup, .keyboardOneGroup, .keyboardTwoGroup, .keyboardThreeGroup {
+//     input {
+//         height: 1.5rem;
+//         width: 2.5rem;
+//     }
+// }
