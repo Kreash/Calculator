@@ -11,8 +11,7 @@ export class AppComponent {
   field: string = "0";
   signs: string = "";
 
-  addSign(sign) {
-
+  addSignApp(sign) {
     let leng: number = this.signs.length - 1;
 
     if(sign==="+" || sign==="-" || sign==="*" || sign==="/"){
@@ -21,13 +20,19 @@ export class AppComponent {
       } else {
         return;
         }
+    } else if (sign===","){
+      let arr: Array<any> = this.signs.split("|")
+      let end: string = arr[arr.length - 1];
+      if(!end.includes(".") && !(this.signs[leng] === "|")){
+        this.signs = this.signs + ".";
+      }
     } else {
       this.signs = this.signs + sign;
     }
     this.field = this.signs.split("|").join("");
   }
 
-  toEquals() {
+  toEqualsApp() {
     let arr: Array<any> = this.signs.split("|")
     let num_a: number = +arr[0];
     let num_b: number;
@@ -35,7 +40,7 @@ export class AppComponent {
 
       for(let i = 1; i < arr.length; i++){
         if (!(arr[i]==="+" || arr[i]==="-" || arr[i]==="*" || arr[i]==="/")){
-          //--Пропуск итерации--
+          //--Continue--
         } else if (arr[i]==="+") {
           num_b = +arr[i + 1]
           result = this.plus(num_a, num_b);
@@ -69,9 +74,20 @@ export class AppComponent {
   division(a:number, b:number){
     return a / b;
   }
-  toClear() {
+
+  toClearApp() {
     this.signs = "";
     this.field = "0";
     this.display = 0;
+  }
+
+  toEraseApp(){
+    if(this.signs[this.signs.length - 1] === "|"){
+      this.field = this.field.slice(0, this.field.length - 1);
+      this.signs = this.signs.slice(0, this.signs.length - 3);
+    } else {
+    this.field = this.field.slice(0, this.field.length - 1);
+    this.signs = this.signs.slice(0, this.signs.length - 1);
+    }
   }
 }

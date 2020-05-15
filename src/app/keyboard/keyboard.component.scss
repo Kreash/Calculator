@@ -1,0 +1,54 @@
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 0px 10px;
+    color: #000;
+    background-color: #94b0b7;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 14px;
+    overflow: hidden;
+    transition: 0.4s;
+
+    height: 1.5rem;
+    width: 2.5rem;
+
+}
+.button:hover{
+    color: #ffffff;
+    background: #7697a0;
+    box-shadow: 0 0 2px #7697a0, 0 0 4px #7697a0, 0 0 6px #7697a0;
+}
+
+.keyboardDeleteGroup {
+    display: flex;
+    height: 1.5rem;
+    input {
+        height: 1.5rem;
+    }
+
+}
+.button-delete {
+    width: 3.75rem;
+}
+.button-erase {
+    font-size: 7px;
+    width: 6.25rem;
+
+}
+
+.keyboardNumAndSign {
+    display: flex;
+}
+
+.keyboardGroups {
+    display: flex;
+}
+// .keyboardNullGroup, .keyboardOneGroup, .keyboardTwoGroup, .keyboardThreeGroup {
+//     input {
+//         height: 1.5rem;
+//         width: 2.5rem;
+//     }
+// }
