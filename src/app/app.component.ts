@@ -6,28 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+
   display: number = 0;
   field: string = "0";
   signs: string = "";
 
-  ngOnInit(){
+  ngOnInit() {
     document.addEventListener('keyup', (event) => this.keyboardManager(event.key))
   }
 
   addSignApp(sign) {
     let leng: number = this.signs.length - 1;
 
-    if(sign==="+" || sign==="-" || sign==="*" || sign==="/"){
-      if (!(this.signs[leng] === "|")){
+    if (sign === "+" || sign === "-" || sign === "*" || sign === "/") {
+      if (!(this.signs[leng] === "|")) {
         this.signs = this.signs + "|" + sign + "|";
       } else {
         return;
-        }
-    } else if (sign===","){
+      }
+    } else if (sign === ",") {
       let arr: Array<any> = this.signs.split("|")
       let end: string = arr[arr.length - 1];
-      if(!end.includes(".") && !(this.signs[leng] === "|")){
+      if (!end.includes(".") && !(this.signs[leng] === "|")) {
         this.signs = this.signs + ".";
       }
     } else {
@@ -42,40 +42,40 @@ export class AppComponent {
     let num_b: number;
     let result: number = 0;
 
-      for(let i = 1; i < arr.length; i++){
-        if (!(arr[i]==="+" || arr[i]==="-" || arr[i]==="*" || arr[i]==="/")){
-          //--Continue--
-        } else if (arr[i]==="+") {
-          num_b = +arr[i + 1]
-          result = this.plus(num_a, num_b);
-          num_a = result;
-        } else if (arr[i]==="-"){
-          num_b = +arr[i + 1]
-          result = this.minus(num_a, num_b);
-          num_a = result;
-        } else if (arr[i]==="*"){
-          num_b = +arr[i + 1]
-          result = this.multiplication(num_a, num_b);
-          num_a = result;
-        } else if (arr[i]==="/"){
-          num_b = +arr[i + 1]
-          result = this.division(num_a, num_b);
-          num_a = result;
-        }
+    for (let i = 1; i < arr.length; i++) {
+      if (!(arr[i] === "+" || arr[i] === "-" || arr[i] === "*" || arr[i] === "/")) {
+        //--Continue--
+      } else if (arr[i] === "+") {
+        num_b = +arr[i + 1]
+        result = this.plus(num_a, num_b);
+        num_a = result;
+      } else if (arr[i] === "-") {
+        num_b = +arr[i + 1]
+        result = this.minus(num_a, num_b);
+        num_a = result;
+      } else if (arr[i] === "*") {
+        num_b = +arr[i + 1]
+        result = this.multiplication(num_a, num_b);
+        num_a = result;
+      } else if (arr[i] === "/") {
+        num_b = +arr[i + 1]
+        result = this.division(num_a, num_b);
+        num_a = result;
       }
+    }
     this.display = result;
   }
-  
-  plus(a:number, b:number){
+
+  plus(a: number, b: number) {
     return a + b;
   }
-  minus(a:number, b:number){
+  minus(a: number, b: number) {
     return a - b;
   }
-  multiplication(a:number, b:number){
+  multiplication(a: number, b: number) {
     return a * b;
   }
-  division(a:number, b:number){
+  division(a: number, b: number) {
     return a / b;
   }
 
@@ -85,13 +85,13 @@ export class AppComponent {
     this.display = 0;
   }
 
-  toEraseApp(){
-    if(this.signs[this.signs.length - 1] === "|"){
+  toEraseApp() {
+    if (this.signs[this.signs.length - 1] === "|") {
       this.field = this.field.slice(0, this.field.length - 1);
       this.signs = this.signs.slice(0, this.signs.length - 3);
     } else {
-    this.field = this.field.slice(0, this.field.length - 1);
-    this.signs = this.signs.slice(0, this.signs.length - 1);
+      this.field = this.field.slice(0, this.field.length - 1);
+      this.signs = this.signs.slice(0, this.signs.length - 1);
     }
   }
 
