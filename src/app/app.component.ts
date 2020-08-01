@@ -24,7 +24,7 @@ export class AppComponent {
       } else {
         return;
       }
-    } else if (sign === ",") {
+    } else if (sign === "," || sign === ".") {
       let arr: Array<any> = this.signs.split("|")
       let end: string = arr[arr.length - 1];
       if (!end.includes(".") && !(this.signs[leng] === "|")) {
@@ -102,7 +102,7 @@ export class AppComponent {
       this.toEraseApp();
     } else if (key === "Delete") {
       this.toClearApp();
-    } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+    } else if (key === "+" || key === "-" || key === "*" || key === "/" || key === "," || key === ".") {
       this.addSignApp(key);
     } else if (!Number.isNaN(+key) && key !== ' ') {
       this.addSignApp(key);
