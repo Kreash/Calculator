@@ -11,6 +11,10 @@ export class AppComponent {
   field: string = "0";
   signs: string = "";
 
+  ngOnInit(){
+    document.addEventListener('keyup', (event) => this.keyboardManager(event.key))
+  }
+
   addSignApp(sign) {
     let leng: number = this.signs.length - 1;
 
@@ -90,4 +94,19 @@ export class AppComponent {
     this.signs = this.signs.slice(0, this.signs.length - 1);
     }
   }
+
+  keyboardManager(key) {
+    if (key === "Enter") {
+      this.toEqualsApp();
+    } else if (key === "Backspace") {
+      this.toEraseApp();
+    } else if (key === "Delete") {
+      this.toClearApp();
+    } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+      this.addSignApp(key);
+    } else if (!Number.isNaN(+key) && key !== ' ') {
+      this.addSignApp(key);
+    }
+  }
+
 }

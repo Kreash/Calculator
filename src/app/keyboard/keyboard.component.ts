@@ -30,8 +30,6 @@ export class KeyboardComponent implements OnInit {
     this.toEraseApp.emit();
   }
 
-
-
   constructor() { }
 
   ngOnInit(): void {
